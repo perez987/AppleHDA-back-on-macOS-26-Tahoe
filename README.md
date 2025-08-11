@@ -60,9 +60,17 @@ Extremely simple interface, just two buttons:
 - Install Kexts: Opens a dialog to search for AppleHDA.kext
 - Restore Snapshot: Revert to the last unmodified system image (last sealed snapshot).
 
-If you like simple interfaces without too much options, MyKextInstaller is unbeatable.
-
 <img width="640" src="MKI.png">
+
+- A dialog warns if KDK is not installed:
+
+<p align="center">
+<img width="480" src="MKI-nokdk.png">
+</p>
+
+- The app is now signed and notarized, so you will no longer see 'Move the application to the trash' message.
+
+If you like simple interfaces without too much options, MyKextInstaller is unbeatable.
 
 ### Restart
 
