@@ -35,7 +35,7 @@ OCLP team is working on a patch that will be applied similarly to current root p
 
 Both applications allow you:
 
-- to get back sound from the built-in audio hardware by reinstalling AppleHDA.kext (extracted from Tahoe Beta 1)
+- to get back sound from the built-in audio hardware by reinstalling AppleHDA.kext (extracted from first Tahoe beta)
 - to restore the system to the last unmodified system image (last sealed snapshot) to undo the process.
 
 I've tested them and they seem to work fine for installing AppleHDA.kext and for reverting the installation.
