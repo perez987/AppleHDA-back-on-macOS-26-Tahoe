@@ -31,7 +31,7 @@ OCLP team is working on a patch that will be applied similarly to current root p
 
 *Mirone* has [MyKextInstaller](https://github.com/Mirone/MyKextInstaller) app. Although it's on GitHub, source code isn't yet available. Its interface is simpler, making it very easy to use. As an added benefit, you can also download AppleHDA.kext along with the app.
 
-*Laobamac* has [SimpleLoader](https://github.com/laobamac/SimpleLoader) app on GitHub. It's implemented in SwiftUI. Main drawback is that base language is Chinese. There are already translations to English, Spanish, Korean and Brazilian Portuguese.
+*Laobamac* has SimpleLoader app on GitHub. It's implemented in SwiftUI. Main drawback is that base language is Chinese. There are already translations to English, Spanish, Korean and Brazilian Portuguese, not up to date on the *Laobamac* repo but yes in [my fork](https://github.com/laobamac/SimpleLoader) .
 
 Both applications allow you:
 
@@ -48,8 +48,7 @@ Due to its simplicity, below are some comments about MyKextInstaller.
 - AppleALC version 1.9.5 or later in the OpenCore Kexts folder and in config.plist (as usual)
 - config.plist: csr-active-config=03080000 (SIP partially disabled)
 - AppleHDA.kext extracted from the KDK. The default path is
-`/Library/Developer/KDKs/KDK_26.0_25A5279m.kdk/System/Library/Extensions/AppleHDA.kext
-`
+`/Library/Developer/KDKs/KDK_26.0_25A5279m.kdk/System/Library/Extensions/AppleHDA.kext`
 
 **Note**: AppleHDA.kext that exists in the macOS 15 Sequoia installation also works.
 
@@ -69,6 +68,47 @@ Extremely simple interface, just two buttons:
 - The app is now signed and notarized, so you will no longer see 'Move the application to the trash' message.
 
 If you like simple interfaces without too much options, MyKextInstaller is unbeatable.
+
+### SimpleLoader
+
+**Main Window**
+
+- Select the KDK you have installed
+- Select the extension to install
+- Log messages (operation log)
+- Options
+- Bottom section with buttons that perform some tasks:
+	- merge KDK without installing AppleHDA.kext
+	- rebuild the extension cache
+	- install AppleHDA.kext
+	- create a new system snapshot or restore the snapshot prior to installing AppleHDA.kext (this undo AppleHDA.kext installation).
+
+<figure>
+  <figcaption>SimpleLoader main window</figcaption>
+   <img width="640" alt="Main window" src="SimpleLoader-main-window.png""/>
+</figure>
+
+<figure>
+  <figcaption>SimpleLoader Installing kext</figcaption>
+     <img width="640" alt="Installing kext window" src="SimpleLoader-installing.png""/>
+</figure>
+
+<figure>
+  <figcaption>SimpleLoader no KDK warning</figcaption>
+   <img width="440" alt="No KDK warning kext window" src="SimpleLoader-nokdk.png""/>
+</figure>
+
+**About button**
+
+Opens a window with two sections:
+
+- Copyright, current language and link to change language (shows available languages)
+- List of translators.
+
+<figure>
+  <figcaption>SimpleLoader About window</figcaption>
+   <img width="440" alt="About window" src="SimpleLoader-about.png""/>
+</figure>
 
 ### Restart
 
