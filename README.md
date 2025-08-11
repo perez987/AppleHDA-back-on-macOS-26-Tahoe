@@ -44,7 +44,7 @@ Due to its simplicity, below are some comments about MyKextInstaller.
 
 ### Requirements for MyKextInstaller and SimpleLoader
 
-- Tahoe Beta 1 Kernel Debug Kit ([KDK 26.0 build 25A5279m](https://developer.apple.com/download/all/?q=kernel)). You must download and install it yourself before using the app. Updating Tahoe partially breaks KDK installation, and you will need to reinstall it
+- Tahoe beta 1 Kernel Debug Kit ([KDK 26.0 build 25A5279m](https://developer.apple.com/download/all/?q=kernel)). You must download and install it yourself before using SimpleLoader, MyKextInstaller downloads and installs it for you. Updating Tahoe partially breaks KDK installation, and you will need to reinstall it
 - AppleALC version 1.9.5 or later in the OpenCore Kexts folder and in config.plist (as usual)
 - config.plist: csr-active-config=03080000 (SIP partially disabled)
 - AppleHDA.kext extracted from the KDK. The default path is
