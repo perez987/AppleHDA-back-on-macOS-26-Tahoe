@@ -59,11 +59,7 @@ Extremely simple interface, just two buttons:
 
 <img width="640" src="Img/MKI.png">
 
-- A dialog warns if KDK is not installed:
-
-<img width="440" src="Img/MKI-noKDK.png">
-
-- If KDK is not installed, beta 1 KDK is downloaded without user intervention. Note: If there is an empty `/Library/Developer/KDKs` folder, the download will not be performed. It will only be if KDKs folder does not exist (pending fix by the developer):
+- A dialog warns if KDK is not installed. If KDK is not installed, beta 1 KDK is downloaded without user intervention. Note: If there is an empty `/Library/Developer/KDKs` folder, the download will not be performed. It will only be if KDKs folder does not exist (pending fix by the developer):
 
 <img width="480" src="Img/MKI-downloadKDK.png">
 
