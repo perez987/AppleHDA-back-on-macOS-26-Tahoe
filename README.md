@@ -40,8 +40,6 @@ Both applications allow you:
 
 I've tested them and they seem to work fine for installing AppleHDA.kext and for reverting the installation.
 
-Due to its simplicity, below are some comments about MyKextInstaller.
-
 ### Requirements for MyKextInstaller and SimpleLoader
 
 - Tahoe beta 1 Kernel Debug Kit ([KDK 26.0 build 25A5279m](https://developer.apple.com/download/all/?q=kernel)). You must download and install it yourself before using SimpleLoader, MyKextInstaller downloads and installs it for you. Updating Tahoe partially breaks KDK installation, and you will need to reinstall it
