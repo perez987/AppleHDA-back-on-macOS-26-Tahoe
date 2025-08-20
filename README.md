@@ -136,3 +136,28 @@ No variant specified, falling back to release
 **Reminder**: Upgrading or installing macOS Tahoe will lose these changes and you'll need to reinstall AppleHDA.kext again.
 
 ---
+
+###  NOTE: macOS Tahoe beta 5 and newer
+
+Apple has changed the disk icons on the Desktop. You may like them more or less, but they're different from the ones we've used for years.
+These icons are located in the `/System/Library/Extensions/IOStorageFamily.kext` extension.
+
+<figure>
+  <figcaption>New disk icons</figcaption>
+   <img width="640" alt="Main window" src="Img/New-icons.png""/>
+</figure>
+
+In Tahoe beta 1 Kernel Debug Kit (KDK 26.0 build 25A5279m), used to restore AppleHDA.kext, IOStorageFamily.kext has the old icons. When you install this KDK and AppleHDA.kext, you lose the new icons and revert to the old ones. To maintain the new icons, you must keep the IOStorageFamily.kext from the latest beta versions.
+
+To keep the new icons:
+
+- Save IOStorageFamily.kext from the current macOS (e.g., copy it to the Desktop)\
+`sudo cp -R /System/Library/Extensions/IOStorageFamily.kext Desktop`
+- Install KDK 25A5279m
+- Replace IOStorageFamily.kext del KDK with the one you saved on the Desktop\
+`sudo cp -R Desktop/IOStorageFamily.kext /Library/Developer/KDKs/KDK_26.0_25A5279m.kdk/System/Library/Extensions`
+- Install Apple HDA.kext as explained above.
+
+This means that, if you use MyKextInstaller (which fetches the KDK on its own, installs and merges it), you need to install the KDK and replace IOStorageFamily.kext before using the app so that it detects that the KDK is already installed.
+
+SimpleLoader leaves the KDK installation up to you, so you always need to install the KDK and make the replacement it before launching the app.
