@@ -42,7 +42,7 @@ I've tested them and they seem to work fine for installing AppleHDA.kext and for
 
 ### Requirements for MyKextInstaller and SimpleLoader
 
-- Tahoe beta 1 Kernel Debug Kit ([KDK 26.0 build 25A5279m](https://developer.apple.com/download/all/?q=kernel)). You must download and install it yourself before using SimpleLoader, MyKextInstaller downloads and installs it for you. Updating Tahoe partially breaks KDK installation, and you will need to reinstall it
+- Tahoe beta 1 Kernel Debug Kit ([KDK 26.0 build 25A5279m](https://developer.apple.com/download/all/?q=kernel)). You must download and install it yourself before using SimpleLoader, MyKextInstaller downloads and installs it for you. Updating Tahoe partially breaks KDK installation, and you will need to reinstall it<br>**Note**: Apple has released newer KDK (macOS 26 25A5349a at the time of writing). 
 - AppleALC version 1.9.5 or later in the OpenCore Kexts folder and in config.plist (as usual)
 - config.plist: csr-active-config=03080000 (SIP partially disabled)
 - AppleHDA.kext extracted from the KDK. The default path is
