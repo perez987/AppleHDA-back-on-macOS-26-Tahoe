@@ -48,7 +48,6 @@ I've tested them and they seem to work fine for installing AppleHDA.kext and for
   <figcaption></figcaption>
    <img width="540" alt="No KDK window" src="Img/SimpleLoader-nokdk.png""/>
 </figure>
-
 - AppleALC version 1.9.5 or later in the OpenCore Kexts folder and in config.plist (as usual)
 - config.plist: csr-active-config=03080000 (SIP partially disabled)
 - AppleHDA.kext extracted from the KDK. The default path is
