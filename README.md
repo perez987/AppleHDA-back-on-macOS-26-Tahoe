@@ -98,7 +98,7 @@ No variant specified, falling back to release
 165 0 0xffffff7f94b2e000 0x8d6 0x8d6 com.apple.driver.AppleHDAHardwareConfigDriver (600.2) C4C8A9E5-267F-3238-9806-CCDB47297AC6 <6 3>
 ```
 
----
+### Reminder
 
-**Reminder**: Upgrading or installing macOS Tahoe will lose these changes and you'll need to reinstall AppleHDA.kext again.
+Upgrading or installing macOS Tahoe will lose these changes and you'll need to reinstall AppleHDA.kext again.
 
