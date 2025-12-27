@@ -25,7 +25,7 @@ Disadvantages:
 
 ### Reinstall AppleHDA.kext: MyKextInstaller and SimpleLoader
 
-Developers are already looking for a way to reinstall AppleHDA.kext, extracted from Tahoe Beta 1. It's not a simple task since this kext must be located in /System/Library/Extensions, which by design is a non-writable folder.
+Developers are already looking for a way to reinstall AppleHDA.kext, extracted from Tahoe Beta 1 or Sequoia installation. It's not a simple task since this kext must be located in /System/Library/Extensions, which by design is a non-writable folder.
 
 OCLP team is working on a patch that will be applied similarly to current root patches. Still in an early stage, it's not yet viable for end users.
 
@@ -42,69 +42,37 @@ I've tested them and they seem to work fine for installing AppleHDA.kext and for
 
 ### Requirements for MyKextInstaller and SimpleLoader
 
-- Tahoe beta 1 Kernel Debug Kit ([KDK 26.0 build 25A5279m](https://github.com/dortania/KdkSupportPkg/releases)). You must download and install it yourself before using SimpleLoader, MyKextInstaller downloads and installs it for you. Updating Tahoe partially breaks KDK installation, and you will need to reinstall it<br>**Note**: Apple has released newer KDK ([26.0 build 25A5349a](https://github.com/dortania/KdkSupportPkg/releases) at the time of writing). 
+- Tahoe Kernel Debug Kit. If the same macOS version exists (e.g., `Kernel Debug Kit 26.2 build 25C56` for `macOS Tahoe 26.2 build 25C56`), that's the one to use. If it doesn't exist because Apple hasn't released it yet, use the closest previous version. MyKextInstaller downloads and installs it for you but SimpleLoader doesn't. My repository's version of SimpleLoader does implement the option to download the correct KDK if it doesn't exist on your system.
+
+<figure>
+  <figcaption></figcaption>
+   <img width="540" alt="No KDK window" src="Img/SimpleLoader-nokdk.png""/>
+</figure>
+
 - AppleALC version 1.9.5 or later in the OpenCore Kexts folder and in config.plist (as usual)
 - config.plist: csr-active-config=03080000 (SIP partially disabled)
 - AppleHDA.kext extracted from the KDK. The default path is
-`/Library/Developer/KDKs/KDK_26.0_25A5279m.kdk/System/Library/Extensions/AppleHDA.kext`
+`/Library/Developer/KDKs/<KDK_version-and-build.kdk>/System/Library/Extensions/AppleHDA.kext`
 
 **Note**: AppleHDA.kext that exists in the macOS 15 Sequoia installation also works.
 
 ### MyKextInstaller
 
-Extremely simple interface, just two buttons:
-
-- Install Kexts: Opens a dialog to search for AppleHDA.kext
-- Restore Snapshot: Revert to the last unmodified system image (last sealed snapshot).
-
-<img width="640" src="Img/MKI.png">
-
-- A dialog warns if KDK is not installed. If KDK is not installed, it is downloaded without user intervention.
-
-<img width="480" src="Img/MKI-downloadKDK.png">
-
-- KDK is copied to its destination folder after being downloaded: 
-
-<img width="480" src="Img/MKI-copyKDK.png">
-
-- Finally, permissions are repaired, extensions cache is rebuilt and a restart is requested:
-
-<img width="480" src="Img/MKI-cache.png">
-
-<img width="480" src="Img/MKI-reboot.png">
-
-- The app is now signed and notarized, so you will no longer see 'Move the application to the trash' message.
-
-If you like simple interfaces without too much options, MyKextInstaller is unbeatable.
+Simple interface. The app is now signed and notarized, so you will no longer see 'Move the application to the trash' message.
 
 ### SimpleLoader
 
 **Main Window**
 
-- Select the KDK you have installed
-- Select the extension to install
+- Select the installed KDK(or download it when asked)
+- Select the kext to install
 - Log messages (operation log)
 - Options
 - Bottom section with buttons that perform some tasks:
-	- merge KDK without installing AppleHDA.kext
-	- rebuild the extension cache
+	- merge installed KDK without installing AppleHDA.kext
+	- rebuild extension cache
 	- install AppleHDA.kext
 	- create a new system snapshot or restore the snapshot prior to installing AppleHDA.kext (this undo AppleHDA.kext installation).
-
-<figure>
-  <figcaption>SimpleLoader main window</figcaption>
-   <img width="640" alt="Main window" src="Img/SimpleLoader-main-window.png""/>
-</figure>
-
-<figure>
-  <figcaption>SimpleLoader Installing kext</figcaption>
-     <img width="640" alt="Installing kext window" src="Img/SimpleLoader-installing.png""/>
-</figure>
-
-<figure>
-  <figcaption>SimpleLoader no KDK warning</figcaption>
-   <img width="440" alt="No KDK warning kext window" src="Img/SimpleLoader-nokdk.png""/>
-</figure>
 
 **About button**
 
@@ -114,8 +82,8 @@ Opens a window with two sections:
 - List of translators.
 
 <figure>
-  <figcaption>SimpleLoader About window</figcaption>
-   <img width="440" alt="About window" src="Img/SimpleLoader-about.png""/>
+  <figcaption></figcaption>
+   <img width="400" alt="About window" src="Img/SimpleLoader-about.png""/>
 </figure>
 
 ### Restart
@@ -135,29 +103,3 @@ No variant specified, falling back to release
 
 **Reminder**: Upgrading or installing macOS Tahoe will lose these changes and you'll need to reinstall AppleHDA.kext again.
 
----
-
-###  NOTE: macOS Tahoe beta 5 and newer
-
-Apple has changed the disk icons on the Desktop. You may like them more or less, but they're different from the ones we've used for years.
-These icons are located in the `/System/Library/Extensions/IOStorageFamily.kext` extension.
-
-<figure>
-  <figcaption>New disk icons</figcaption>
-   <img width="640" alt="Main window" src="Img/New-icons.png""/>
-</figure>
-
-In Tahoe beta 1 Kernel Debug Kit (KDK 26.0 build 25A5279m), used to restore AppleHDA.kext, IOStorageFamily.kext has the old icons. When you install this KDK and AppleHDA.kext, you lose the new icons and revert to the old ones. To maintain the new icons, you must keep the IOStorageFamily.kext from the latest beta versions.
-
-To keep the new icons:
-
-- Save IOStorageFamily.kext from the current macOS (e.g., copy it to the Desktop)\
-`sudo cp -R /System/Library/Extensions/IOStorageFamily.kext Desktop`
-- Install KDK 25A5279m
-- Replace IOStorageFamily.kext del KDK with the one you saved on the Desktop\
-`sudo cp -R Desktop/IOStorageFamily.kext /Library/Developer/KDKs/KDK_26.0_25A5279m.kdk/System/Library/Extensions`
-- Install Apple HDA.kext as explained above.
-
-This means that, if you use MyKextInstaller (which fetches the KDK on its own, installs and merges it), you need to install the KDK and replace IOStorageFamily.kext before using the app so that it detects that the KDK is already installed.
-
-SimpleLoader leaves the KDK installation up to you, so you always need to install the KDK and make the replacement it before launching the app.
