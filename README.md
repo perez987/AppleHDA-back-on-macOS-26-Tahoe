@@ -31,7 +31,7 @@ OCLP team is working on a patch that will be applied similarly to current root p
 
 *Mirone* has [MyKextInstaller](https://github.com/Mirone/MyKextInstaller) app. Although it's on GitHub, source code isn't yet available. Its interface is simpler, making it very easy to use. As an added benefit, you can also download AppleHDA.kext along with the app.
 
-*Laobamac* has SimpleLoader app on GitHub. It's implemented in SwiftUI. Main drawback is that base language is Chinese. There are already translations to English, Spanish, Korean and Brazilian Portuguese, not up to date on the *Laobamac* repo but it is in [my fork](https://github.com/perez987/SimpleLoader) .
+*Laobamac* has SimpleLoader app on GitHub. It's implemented in SwiftUI. Main drawback is that base language is Chinese. There are already translations to English, Spanish, Korean and Brazilian Portuguese, not up to date on the *Laobamac* repo but they are in [my fork](https://github.com/perez987/SimpleLoader) .
 
 Both applications allow you:
 
