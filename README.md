@@ -42,7 +42,7 @@ I've tested them and they seem to work fine for installing AppleHDA.kext and for
 
 ### Requirements for MyKextInstaller and SimpleLoader
 
-- Tahoe Kernel Debug Kit. If the same macOS version exists (e.g., `Kernel Debug Kit 26.2 build 25C56` for `macOS Tahoe 26.2 build 25C56`), that's the one to use. If it doesn't exist because Apple hasn't released it yet, use the closest previous version. MyKextInstaller downloads and installs it for you but SimpleLoader doesn't. My repository's version of SimpleLoader does implement the option to download the correct KDK if it doesn't exist on your system.
+- Tahoe Kernel Debug Kit. If the same macOS version exists (e.g., `Kernel Debug Kit 26.2 build 25C56` for `macOS Tahoe 26.2 build 25C56`), that's the one to use. If it doesn't exist because Apple hasn't released it yet, use the closest previous version. MyKextInstaller downloads and installs it for you but *Laobamac* SimpleLoader doesn't. My repository's version of SimpleLoader does implement the option to download the correct KDK if it doesn't exist on your system.
 
 <figure>
   <figcaption></figcaption>
