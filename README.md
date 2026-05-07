@@ -42,12 +42,7 @@ I've tested them and they seem to work fine for installing AppleHDA.kext and for
 
 ### Requirements for MyKextInstaller and SimpleLoader
 
-- Tahoe Kernel Debug Kit. If the same macOS version exists (e.g., `Kernel Debug Kit 26.2 build 25C56` for `macOS Tahoe 26.2 build 25C56`), that's the one to use. If it doesn't exist because Apple hasn't released it yet, use the closest previous version. MyKextInstaller downloads and installs it for you but *Laobamac* SimpleLoader doesn't. My repository's version of SimpleLoader does implement the option to download the correct KDK if it doesn't exist on your system.
-
-<figure>
-  <figcaption></figcaption>
-   <img width="540" alt="No KDK window" src="Img/SimpleLoader-nokdk.png""/>
-</figure>
+- Tahoe Kernel Debug Kit. If the same macOS version exists (e.g., `Kernel Debug Kit 26.2 build 25C56` for `macOS Tahoe 26.2 build 25C56`), that's the one to use. If it doesn't exist because Apple hasn't released it yet, use the closest previous version.
 - AppleALC version 1.9.5 or later in the OpenCore Kexts folder and in config.plist (as usual)
 - config.plist: csr-active-config=03080000 (SIP partially disabled)
 - AppleHDA.kext extracted from the KDK. The default path is
@@ -58,6 +53,8 @@ I've tested them and they seem to work fine for installing AppleHDA.kext and for
 ### MyKextInstaller
 
 Simple interface. The app is now signed and notarized, so you will no longer see 'Move the application to the trash' message.
+
+![MKI](Img/MKI.png)
 
 ### SimpleLoader
 
@@ -73,6 +70,8 @@ Simple interface. The app is now signed and notarized, so you will no longer see
 	- install AppleHDA.kext
 	- create a new system snapshot or restore the snapshot prior to installing AppleHDA.kext (this undo AppleHDA.kext installation).
 
+![SimpleLoader](Img/SimpleLoader.png)
+
 **About button**
 
 Opens a window with two sections:
@@ -80,10 +79,11 @@ Opens a window with two sections:
 - Copyright, current language and link to change language (shows available languages)
 - List of translators.
 
-<figure>
-  <figcaption></figcaption>
-   <img width="400" alt="About window" src="Img/SimpleLoader-about.png""/>
-</figure>
+**No KDK found**
+
+If there is no installed KDK, A warning alerts you to this and offers the option to open the Dortania KDK repository.
+
+![SimpleLoader-nokdk](Img/SimpleLoader-nokdk.png)  
 
 ### Restart
 
